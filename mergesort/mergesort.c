@@ -33,13 +33,13 @@ void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIn
   }
 }
 
-void bool needsSorting(int rangeSize){
-  if(rangeSize >= 2){
-    return True; 
-  }else {
-    return False;	  
-  } 
-   
+bool needsSorting(int rangeSize){
+ if(rangeSize>=2){
+   return true;
+ } 
+ else{
+   return false;
+ }			
 }
 
 
@@ -48,7 +48,7 @@ void mergeSortRange(int values[], int startIndex, int endIndex){                
       int midPoint = (startIndex + endIndex) / 2;
       mergeSortRange(values, startIndex, midPoint);
       mergeSortRange(values,midPoint, endIndex);
-      mergeRanges(values, startIndex, midPoint, endIndex);
+      mergeRanges(values, rangeSize, startIndex, midPoint, endIndex);
     }
 }
 
