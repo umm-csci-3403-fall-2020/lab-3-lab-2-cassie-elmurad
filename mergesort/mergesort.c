@@ -31,6 +31,7 @@ void mergeRanges(int values[], int size, int startIndex, int midPoint, int endIn
   for(int i =0; i< rangeSize; i++){
     values[i + startIndex] = destination[i];
   }
+  free(destination);
 }
 
 bool needsSorting(int rangeSize){
@@ -43,13 +44,15 @@ bool needsSorting(int rangeSize){
 }
 
 
-void mergeSortRange(int values[], int startIndex, int endIndex){                                                    int rangeSize = endIndex - startIndex;
-    if (needsSorting(rangeSize)) {
+void mergeSortRange(int values[], int startIndex, int endIndex){                                                                                                                    int rangeSize = endIndex - startIndex;
+    bool needSort = needsSorting(rangeSize); 
+    if (needSort) {
       int midPoint = (startIndex + endIndex) / 2;
       mergeSortRange(values, startIndex, midPoint);
       mergeSortRange(values,midPoint, endIndex);
       mergeRanges(values, rangeSize, startIndex, midPoint, endIndex);
     }
+ 
 }
 
 
