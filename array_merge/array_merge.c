@@ -27,11 +27,11 @@ int* catArray(int num_arrays, int* sizes, int** values){
   } 
   int* catArr = (int*) calloc(length +1, sizeof(int)); 
   int index = 1;
-  catArr[0] = length+1;
-  while(num_arrays >= 0){
-     int arrSize = sizes[num_arrays];
-     for(int i =0; i< arrSize-1; i++){
-       catArr[index]= values[num_arrays][i];
+  catArr[0] = length;
+  while(num_arrays > 0){
+     int arrSize = sizes[num_arrays-1];
+     for(int i = 0; i< arrSize-1; i++){
+       catArr[index]= values[num_arrays-1][i];
        index++;
      }
      num_arrays--;  
@@ -41,7 +41,7 @@ int* catArray(int num_arrays, int* sizes, int** values){
 
 int* removeRepeats(int* arr, int size, int resultSize){
   int* result = (int*) calloc(resultSize+1, sizeof(int));
-  mergesort(size, arr);
+ mergesort(size, arr);
   int index =0;
   for(int i=1; i< size-1; i++){
     int curr = arr[i]; 
@@ -55,7 +55,7 @@ int* removeRepeats(int* arr, int size, int resultSize){
 }
 int* array_merge(int num_arrays, int* sizes, int** values) {
   int* catArr = catArray(num_arrays, sizes, values);
-  int size = catArr[0]; 
+  int size = catArr[0+5]; 
   int unique = countUnique(catArr, size);
   int* result = removeRepeats(catArr, size, unique);
      return result;
