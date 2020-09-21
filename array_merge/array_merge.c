@@ -22,7 +22,11 @@ int countUnique(int* arr, int size){
     index++;
     }
   }
-  count++;
+  if(size > 1){
+    count++;
+
+  } 
+  
   return count;
 }// end count Unique
 int* catArray(int num_arrays, int* sizes, int** values){
