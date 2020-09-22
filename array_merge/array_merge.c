@@ -54,22 +54,22 @@ int* removeRepeats(int* arr, int size, int resultSize){
     }
     else{
 	result[0] = 0;
+	
     }
-  printf("the result size is %d\n", resultSize);
+ 
   int index =1;
-  for(int i=1; i<= size; i++){
+  for(int i=1; i< size; i++){
     int curr = arr[i]; 
     int next = arr[i+1];
     if(curr!=next && size > 1){
-     printf("%d", arr[i]);
      result[index] = arr[i];
      index++;
     }
-    if(size == 1){
-      result[1] = arr[0];
-
-    }
   
+  }
+
+  if(size == 1){
+    result[1] = arr[0];
   }
   free(arr);
   return result;
