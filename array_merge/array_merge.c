@@ -71,6 +71,7 @@ int* removeRepeats(int* arr, int size, int resultSize){
     }
   
   }
+  free(arr);
   return result;
 }
 int* array_merge(int num_arrays, int* sizes, int** values) {
